@@ -29,7 +29,7 @@ tar -xzf ds-webui-<version>[-with-import].tar.gz -C /path/to/target/folder
 Внутри (lite): `index.html`, модули приложения (`util.js`, `effects.js`, `dataset.js`,
 `entities.js`, `export.js`, `store.js`, `view-common.js`, `view-build.js`, `view-entities.js`,
 `view-table.js`, `main.js`), `styles.css`, `sample-data/` (включая пресет по умолчанию
-`base.js`), `scripts/`, `LICENSE`, `README.md`. В `-with-import` — дополнительно каталог
+`base.js`), `LICENSE`, `README.md`. В `-with-import` — дополнительно каталог
 `import/` (`import.js`, `vendor/xlsx.full.min.js`, `vendor/SHEETJS-LICENSE`, `LICENSE`,
 `README.md` этого отдельного репозитория — подробности и его собственный changelog там же,
 [`ds-webui-import/releases/README.md`](https://github.com/A1eksMa/ds-webui-import/blob/main/releases/README.md)).
@@ -40,11 +40,28 @@ tar -xzf ds-webui-<version>[-with-import].tar.gz -C /path/to/target/folder
 Пока рядом нет каталога `data/` (вывод `ds-loader` / поллера), страница показывает
 закоммиченный `sample-data/`.
 
-`scripts/` — макросы офисного пакета для выгрузки листа в JSON под `ds-loader`
-(см. `scripts/README.md`). `docs/contract.md` и `tools/gen_sample.py` в архив не входят —
-они только в репозитории.
+`docs/contract.md` и `tools/gen_sample.py` в архив не входят — они только в репозитории.
 
 ---
+
+## 0.33.0a1 — `ds-webui-0.33.0a1.tar.gz` / `ds-webui-0.33.0a1-with-import.tar.gz`
+
+**Последняя alpha-версия этого репозитория.** Проект переходит в фазу бета-тестирования и
+продолжает жить отдельным продуктом — конструктором таблиц — в составе организации
+[JoinSheets](https://github.com/JoinSheets), выходя из пайплайна `ds`. Этот репозиторий
+будет переведён в архивный режим; дальнейшая разработка — в новом месте под JoinSheets.
+
+Первый шаг развязки с пайплайном `ds` — убраны специфичные для него детали:
+
+- **Экспорт в Excel** — теперь одна видимая вкладка `Таблица` вместо прежних двух
+  (`user`/`system`, вторая — скрытая и защищённая копия для последующего diff'а через
+  офисные макросы). Диффинг правок пользователя — больше не задача `ds-webui`.
+- **`scripts/`** (макросы LibreOffice/AlterOffice для выгрузки в JSON под `ds-loader`)
+  вынесены в собственный репозиторий — [`ds-scripts`](https://github.com/A1eksMa/ds-scripts).
+- `docs/contract.md` обобщён: формулировки, явно привязанные к `ds`/`ds-loader` как к
+  единственно возможному продюсеру данных (версии полей, внутренние пути кода, CLI-флаги
+  `ds get`), заменены на нейтральные — контракт описывает формат, а не конкретную
+  реализацию, которая его сегодня производит.
 
 ## 0.32.0a1 — `ds-webui-0.32.0a1.tar.gz` / `ds-webui-0.32.0a1-with-import.tar.gz`
 

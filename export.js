@@ -67,13 +67,9 @@
     ]).join('\n');
   };
 
-  // Книга SpreadsheetML 2003 (Excel XML, расширение .xls) — два настоящих листа
-  // с одинаковыми данными: "user" (видимый, активный) и "system" (скрытый и
-  // защищённый от изменений, пустой пароль). Именованные вкладки открывают и
-  // настольный Microsoft Excel, и LibreOffice / AlterOffice; скрытие и защиту
-  // листа последние могут не применять — тогда это два обычных листа
-  // "user" / "system". Без библиотек.
-  // widthsPt — ширины столбцов в пунктах (пропорции — как на «Таблице»).
+  // Книга SpreadsheetML 2003 (Excel XML, расширение .xls) — один лист с данными.
+  // Открывают и настольный Microsoft Excel, и LibreOffice / AlterOffice, без
+  // библиотек. widthsPt — ширины столбцов в пунктах (пропорции — как на «Таблице»).
   var toXlsWorkbook = function (dataset, columns, widthsPt) {
     return [
       '<?xml version="1.0" encoding="UTF-8"?>',
@@ -86,8 +82,7 @@
       '  <Style ss:ID="cell"><Alignment ss:Vertical="Top" ss:WrapText="1"/></Style>',
       '  <Style ss:ID="hdr"><Alignment ss:Vertical="Top" ss:WrapText="1"/><Font ss:Bold="1"/></Style>',
       ' </Styles>',
-      xlsWorksheet('user', dataset, columns, { selected: true }, widthsPt),
-      xlsWorksheet('system', dataset, columns, { hidden: true, protect: true }, widthsPt),
+      xlsWorksheet('Таблица', dataset, columns, { selected: true }, widthsPt),
       '</Workbook>'
     ].join('\n');
   };
