@@ -28,7 +28,7 @@
 ## Регенерация
 
 ```bash
-python tools/gen_sample.py            # рядом должен лежать чекаут A1eksMa/ds  (../ds)
+python tools/gen_sample.py            # рядом должен лежать чекаут DS-Pipeline/ds  (../ds)
 DS_REPO=/path/to/ds python tools/gen_sample.py
 ```
 

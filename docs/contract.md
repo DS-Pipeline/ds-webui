@@ -6,7 +6,7 @@ CLI, конфигурацию).
 
 **Кто что производит.** Файлы в `data/` готовит внешний продюсер — любой процесс или
 инструмент, соблюдающий формат ниже; `ds-webui` не завязан на конкретную реализацию.
-Сегодня в этой роли выступает [`ds-loader`](https://github.com/A1eksMa/ds-loader) (стадия
+Сегодня в этой роли выступает [`ds-loader`](https://github.com/DS-Pipeline/ds-loader) (стадия
 `publish`), но контракт сформулирован так, чтобы подходил и любой другой продюсер —
 например, конвертер из иных форматов. Референсная реализация этого шага и живой пример —
 [`../tools/gen_sample.py`](../tools/gen_sample.py) → [`../sample-data/`](../sample-data/).
@@ -47,7 +47,7 @@ window.DS_MANIFEST = {
 
 **`label_types`** (опциональное поле, может отсутствовать у старых манифестов) — `{имя показателя: type}` для
 каждого показателя из `labels` (`type` ∈ `"text" | "number" | "date" | "bool"`, как в
-`source.json`'s `labels[].type`, см. [`ds/docs/reference/config-format.md`](https://github.com/A1eksMa/ds/blob/main/docs/reference/config-format.md);
+`source.json`'s `labels[].type`, см. [`ds/docs/reference/config-format.md`](https://github.com/DS-Pipeline/ds/blob/main/docs/reference/config-format.md);
 показатель без объявленного типа → `"text"`). `ds-webui` использует его как **дефолтный тип
 нового индикатора** при создании из сырого поля («+ индикатор», «+ показатель источника» на
 «Индикаторах», и неявные индикаторы при пустом пресете) — пользователю не нужно вручную
@@ -112,7 +112,7 @@ window.DS_MANIFEST_FRAGMENT = { sources: [ { name: "Excel1", file: "Excel1.js", 
 `ds-webui`: любой производитель, знающий эту спецификацию (сейчас — `ds-loader`; в перспективе —
 и другие инструменты, например конвертеры из иных форматов), может сгенерировать такой файл.
 `meta` — как в
-[`ds/docs/reference/get-output-format.md`](https://github.com/A1eksMa/ds/blob/main/docs/reference/get-output-format.md),
+[`ds/docs/reference/get-output-format.md`](https://github.com/DS-Pipeline/ds/blob/main/docs/reference/get-output-format.md),
 без изменений. Каждый показатель (+ ключ источника) — **своя функция**, возвращающая массив
 значений по всем строкам, а не единый построчный `data: [...]`:
 
@@ -232,7 +232,7 @@ window.DS.sources["CRM"] = {
 - `view.entities` — **столбцы таблицы**, формируются из выбранных полей на странице
   «Индикаторы» (отдельная от «Настроек», где выбираются сами источники/поля/связки/условия).
   Это браузерный **Level 2** (см.
-  [`ds/docs/explanation/single-source-fold.md`](https://github.com/A1eksMa/ds/blob/main/docs/explanation/single-source-fold.md)):
+  [`ds/docs/explanation/single-source-fold.md`](https://github.com/DS-Pipeline/ds/blob/main/docs/explanation/single-source-fold.md)):
   разрешение коллизий, типизация, формат. Пусто → каждое выбранное поле = неявная 1:1-сущность
   (`type: "text"`). Порядок массива = порядок столбцов. Одно и то же сырое поле может входить
   в список несколько раз (как есть и/или как вход производной) — не блокируется, коллизия имён

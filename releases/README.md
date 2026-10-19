@@ -8,7 +8,7 @@
 
 **Два варианта архива на одну и ту же версию** (начиная с 0.28.0a1) — `ds-webui`'s core
 один и тот же, различие только в наличии опционального конвертера `.xlsx`
-([`ds-webui-import`](https://github.com/A1eksMa/ds-webui-import), подключается как git
+([`ds-webui-import`](https://github.com/DS-Pipeline/ds-webui-import), подключается как git
 submodule, каталог `import/`):
 
 - `ds-webui-<version>.tar.gz` — **lite**, без `import/`: ни кнопки «Импорт» на
@@ -32,7 +32,7 @@ tar -xzf ds-webui-<version>[-with-import].tar.gz -C /path/to/target/folder
 `base.js`), `LICENSE`, `README.md`. В `-with-import` — дополнительно каталог
 `import/` (`import.js`, `vendor/xlsx.full.min.js`, `vendor/SHEETJS-LICENSE`, `LICENSE`,
 `README.md` этого отдельного репозитория — подробности и его собственный changelog там же,
-[`ds-webui-import/releases/README.md`](https://github.com/A1eksMa/ds-webui-import/blob/main/releases/README.md)).
+[`ds-webui-import/releases/README.md`](https://github.com/DS-Pipeline/ds-webui-import/blob/main/releases/README.md)).
 
 ## Запуск
 
@@ -57,7 +57,7 @@ tar -xzf ds-webui-<version>[-with-import].tar.gz -C /path/to/target/folder
   (`user`/`system`, вторая — скрытая и защищённая копия для последующего diff'а через
   офисные макросы). Диффинг правок пользователя — больше не задача `ds-webui`.
 - **`scripts/`** (макросы LibreOffice/AlterOffice для выгрузки в JSON под `ds-loader`)
-  вынесены в собственный репозиторий — [`ds-scripts`](https://github.com/A1eksMa/ds-scripts).
+  вынесены в собственный репозиторий — [`ds-scripts`](https://github.com/DS-Pipeline/ds-scripts).
 - `docs/contract.md` обобщён: формулировки, явно привязанные к `ds`/`ds-loader` как к
   единственно возможному продюсеру данных (версии полей, внутренние пути кода, CLI-флаги
   `ds get`), заменены на нейтральные — контракт описывает формат, а не конкретную
@@ -182,7 +182,7 @@ sum/avg/min/max/concat/first_nonempty/count_nonempty на все входы) з�
   имён источников). На «Настройках» — поле «Каталог данных» + кнопка «Обновить манифест»
   (перечитать манифест без перезагрузки страницы, или переключиться на другой каталог).
 - **Кнопка «Импорт из Excel»** на «Настройках» — только если подключён (как git submodule)
-  отдельный открытый репозиторий [`ds-webui-import`](https://github.com/A1eksMa/ds-webui-import):
+  отдельный открытый репозиторий [`ds-webui-import`](https://github.com/DS-Pipeline/ds-webui-import):
   разбирает `.xlsx` в тот же ленивый формат + фрагмент манифеста, без единой новой
   зависимости в lite-сборке. См. "Два варианта архива" выше.
 - `store.js` (+`mergeManifests`, `manifestError`), `effects.js` (`loadManifest`,

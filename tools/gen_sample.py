@@ -12,7 +12,7 @@ The committed sample deliberately leaves **CRM stale** (one CRM transaction land
 after `ds get`) and **ERP fresh**, so the "regenerate" badge has something to show.
 
 Usage:
-    python tools/gen_sample.py          # expects ../ds  (sibling checkout of A1eksMa/ds)
+    python tools/gen_sample.py          # expects ../ds  (sibling checkout of DS-Pipeline/ds)
     DS_REPO=/path/to/ds python tools/gen_sample.py
 """
 import json
